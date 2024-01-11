@@ -49,4 +49,17 @@ public class CityController {
     public ModelAndView viewCity(@PathVariable("id") int id){
         return new ModelAndView("city").addObject("city", cityService.getCityById(id));
     }
+
+    @RequestMapping("/updatecity/{id}")
+    public ModelAndView updateCityPage(@PathVariable("id") int id){
+        return new ModelAndView("updatecity")
+                .addObject("city", cityService.getCityById(id))
+                .addObject("countries", countryService.getCountries());
+    }
+
+    @PostMapping("/updatecity/{id}")
+    public ModelAndView updateCity(@PathVariable("id") int id, @RequestParam("name") String name, @RequestParam("countryid") int countryId){
+        cityService.updateCity(id, countryId, name);
+        return getCities();
+    }
 }

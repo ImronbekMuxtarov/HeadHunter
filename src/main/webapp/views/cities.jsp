@@ -27,7 +27,7 @@
                 <td><a href="<%= request.getContextPath()%>/viewcountry/<%= city.getCountryId()%>"><%= city.getCountryId()%></a></td>
                 <td>
                     <a class="btn btn-info" href="<%= request.getContextPath()%>/viewcity/<%= city.getId()%>">View</a>
-                    <a class="btn btn-warning" href="<%= request.getContextPath()%>/updatecountry/<%= city.getId()%>">Edit</a>
+                    <a class="btn btn-warning" href="<%= request.getContextPath()%>/updatecity/<%= city.getId()%>">Edit</a>
                     <a class="btn btn-danger" href="<%= request.getContextPath()%>/deletecity/<%= city.getId()%>">Delete</a>
                 </td>
             </tr>

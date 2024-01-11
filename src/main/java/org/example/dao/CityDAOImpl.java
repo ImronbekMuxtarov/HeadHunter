@@ -19,7 +19,8 @@ public class CityDAOImpl implements CityDAO{
         return jdbcTemplate.query(
                 "select ct.id, cn.id, ct.name " +
                         "from cities ct " +
-                        "join countries cn on ct.country_id = cn.id",
+                        "join countries cn on ct.country_id = cn.id " +
+                        "order by ct.id",
                 new CityMapper()
         );
     }
@@ -30,7 +31,8 @@ public class CityDAOImpl implements CityDAO{
                 "select ct.id, cn.id, ct.name " +
                         "from cities ct " +
                         "join countries cn on ct.country_id = cn.id " +
-                        "where ct.id = ?",
+                        "where ct.id = ? " +
+                        "order by ct.id",
                 new Object[]{id},
                 new CityMapper()
         );

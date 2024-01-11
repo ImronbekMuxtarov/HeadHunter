@@ -17,7 +17,7 @@ public class CountryDAOImpl implements CountryDAO{
     @Override
     public List<Country> getCountries() {
         return jdbcTemplate.query(
-                "select * from countries",
+                "select * from countries order by id",
                 new CountryMapper()
         );
     }
