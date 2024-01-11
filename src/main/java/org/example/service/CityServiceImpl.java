@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.dao.CityDAO;
 import org.example.model.City;
+import org.example.model.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,7 @@ public class CityServiceImpl implements CityService{
 
     @Override
     public void insertCity(int countryId, String name) {
-        cityDAO.insertCity(new City(countryId, name));
+        cityDAO.insertCity(new City(name, new Country(countryId)));
     }
 
     @Override
@@ -39,6 +40,6 @@ public class CityServiceImpl implements CityService{
 
     @Override
     public void updateCity(int id, int countryId, String name) {
-        cityDAO.updateCity(id, new City(countryId, name));
+        cityDAO.updateCity(id, new City(name, new Country(countryId)));
     }
 }

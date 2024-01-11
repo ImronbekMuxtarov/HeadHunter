@@ -15,7 +15,7 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Country Id</th>
+            <th scope="col">Country Name</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -24,7 +24,7 @@
             <tr>
                 <th scope="row"><%= city.getId()%></th>
                 <td><%= city.getName()%></td>
-                <td><a href="<%= request.getContextPath()%>/viewcountry/<%= city.getCountryId()%>"><%= city.getCountryId()%></a></td>
+                <td><a href="<%= request.getContextPath()%>/viewcountry/<%= city.getCountry().getId()%>"><%= city.getCountry().getName()%></a></td>
                 <td>
                     <a class="btn btn-info" href="<%= request.getContextPath()%>/viewcity/<%= city.getId()%>">View</a>
                     <a class="btn btn-warning" href="<%= request.getContextPath()%>/updatecity/<%= city.getId()%>">Edit</a>

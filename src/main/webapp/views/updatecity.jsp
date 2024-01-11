@@ -11,10 +11,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <% City city = (City) request.getAttribute("city");%>
 <% List<Country> countryList = (List<Country>) request.getAttribute("countries");%>
-<% Country c = countryList.stream()
-        .filter(x -> x.getId() == city.getCountryId())
-        .collect(Collectors.toList())
-        .get(0);%>
 <html>
 <head>
     <title>Update City</title>
@@ -27,10 +23,11 @@
         <input type="text" class="form-control" id="name" name="name" required value="<%= city.getName()%>">
     </div>
     <select class="form-select" aria-label="Default select example" name="countryid" id="countryid" required>
-        <option selected value="<%= c.getId()%>"><%= c.getName()%></option>
-        <% for(Country country : countryList){%>
+        <option selected value="<%= city.getCountry().getId()%>"><%= city.getCountry().getName()%></option>
+        <% for(Country country : countryList){
+            if(country.getId() != city.getCountry().getId()){%>
         <option value="<%= country.getId()%>"><%= country.getName()%></option>
-        <% } %>
+        <% }} %>
     </select>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>

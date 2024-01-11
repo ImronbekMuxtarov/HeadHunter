@@ -2,18 +2,18 @@ package org.example.model;
 
 public class City {
     private Integer id;
-    private Integer countryId;
     private String name;
+    private Country country;
 
-    public City(Integer id, Integer countryId, String name) {
+    public City(Integer id, String name, Country country) {
         this.id = id;
-        this.countryId = countryId;
         this.name = name;
+        this.country = country;
     }
 
-    public City(Integer countryId, String name) {
-        this.countryId = countryId;
+    public City(String name, Country country) {
         this.name = name;
+        this.country = country;
     }
 
     public Integer getId() {
@@ -24,19 +24,19 @@ public class City {
         this.id = id;
     }
 
-    public Integer getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(Integer countryId) {
-        this.countryId = countryId;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 }

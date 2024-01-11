@@ -20,7 +20,7 @@
             <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <select class="form-select" aria-label="Default select example" name="countryid" id="countryid" required>
-            <option selected>Country</option>
+            <option value="" selected>Country</option>
             <% for(Country country : countryList){%>
                 <option value="<%= country.getId()%>"><%= country.getName()%></option>
             <% } %>

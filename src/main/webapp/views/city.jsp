@@ -18,8 +18,8 @@
         <div class="card-body">
             <h5 class="card-title" style="color: white">About City</h5>
             <p class="card-text" style="color: white">Name: <%= city.getName()%></p>
-            <p style="color: white">Country Id:
-                <a href="<%= request.getContextPath()%>/viewcountry/<%= city.getCountryId()%>"><%= city.getCountryId()%></a>
+            <p style="color: white">Country Name:
+                <a href="<%= request.getContextPath()%>/viewcountry/<%= city.getCountry().getId()%>"><%= city.getCountry().getName()%></a>
             </p>
         </div>
     </div>

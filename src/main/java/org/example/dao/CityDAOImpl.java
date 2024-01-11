@@ -17,7 +17,7 @@ public class CityDAOImpl implements CityDAO{
     @Override
     public List<City> getCities() {
         return jdbcTemplate.query(
-                "select ct.id, cn.id, ct.name " +
+                "select ct.id, ct.name, ct.country_id, cn.name " +
                         "from cities ct " +
                         "join countries cn on ct.country_id = cn.id " +
                         "order by ct.id",
@@ -28,7 +28,7 @@ public class CityDAOImpl implements CityDAO{
     @Override
     public City getCityById(int id) {
         return jdbcTemplate.queryForObject(
-                "select ct.id, cn.id, ct.name " +
+                "select ct.id, ct.name, ct.country_id, cn.name " +
                         "from cities ct " +
                         "join countries cn on ct.country_id = cn.id " +
                         "where ct.id = ? " +
@@ -41,7 +41,7 @@ public class CityDAOImpl implements CityDAO{
     @Override
     public List<City> getCitiesByCountryId(int countryId) {
         return jdbcTemplate.query(
-                "select ct.id, cn.id, ct.name " +
+                "select ct.id, ct.name, ct.country_id, cn.name " +
                         "from cities ct " +
                         "join countries cn on ct.country_id = cn.id " +
                         "where ct.country_id = ?",
@@ -54,7 +54,7 @@ public class CityDAOImpl implements CityDAO{
     public void insertCity(City city) {
         jdbcTemplate.update(
                 "insert into cities(country_id, name) values (?, ?)",
-                city.getCountryId(),
+                city.getCountry().getId(),
                 city.getName()
         );
     }
@@ -63,7 +63,7 @@ public class CityDAOImpl implements CityDAO{
     public void updateCity(int id, City city) {
         jdbcTemplate.update(
                 "update cities set country_id = ?, name = ? where id = ?",
-                city.getCountryId(),
+                city.getCountry().getId(),
                 city.getName(),
                 id
         );
