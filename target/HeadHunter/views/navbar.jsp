@@ -5,7 +5,7 @@
   Time: 10:42 PM
   To change this template use File | Settings | File Templates.
 --%>
-<link href="<%= request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%= request.getContextPath()%>/resurslar/css/bootstrap.min.css" rel="stylesheet">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="<%= request.getContextPath()%>">Home</a>
@@ -42,4 +42,4 @@
         </div>
     </div>
 </nav>
-<script src="<%= request.getContextPath()%>/js/bootstrap.bundle.min.js"></script>
+<script src="<%= request.getContextPath()%>/resurslar/js/bootstrap.bundle.min.js"></script>

@@ -17,7 +17,6 @@ public class CityController {
     CityService cityService;
     @Autowired
     CountryService countryService;
-
     @RequestMapping("/cities")
     public ModelAndView getCities(){
         return new ModelAndView("cities").addObject("cities", cityService.getCities());
